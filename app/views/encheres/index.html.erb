@@ -1,0 +1,44 @@
+<div class="container">
+
+  <!-- Slide -->
+  <div class="container">
+    <div class="header-page header-img">
+      <div class="col-md-6 col-md-offset-6">
+        <div class="row">
+          <div class="inner-content-compte">
+            <div class="header-content">
+              <h1>Listes des enchères</h1>
+              <hr>
+              <p>Retrouvez l'ensemble des enchéres réalisées sur <%= @objet.nomobjet %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Utilisateur</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @encheres.each do |enchere| %>
+    <tr>
+      <td><%= enchere.utilisateur.prenomuti.capitalize %> <%= enchere.utilisateur.nomuti.capitalize %> </td>
+      <td><%= enchere.prix %>0 €</td>
+      <td><%= enchere.dateench.strftime("%d/%m/%Y %H:%M") %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  <% if current_user.id != @objet.utilisateur.id %>
+    <td> <%= link_to "Encherir sur l'objet", new_objet_enchere_path(@objet.id), {:class => "Tablink"} %></td>
+  <% else %>
+    <td></td>
+  <% end %>
+
+</div>

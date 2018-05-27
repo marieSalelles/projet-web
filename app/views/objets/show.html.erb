@@ -1,0 +1,34 @@
+<div class="container">
+  <h2 class="titre2"><%= @objet.nomobjet %></h2>
+  <p class="vendeur"> Vendeur : <%= @objet.utilisateur.prenomuti %> <%= @objet.utilisateur.nomuti %></p>
+
+  <div class="col-md-5" id="photoObj">
+    <%= cl_image_tag("#{@objet.id}.jpg",alt: @objet.nomobjet, height: '250px' ) %>
+  </div>
+
+  <div class="col-md-5" id="infoObj">
+    <p ><strong>Prix initial:  <%= @objet.prix %>0 € </strong></p><br/>
+
+      <p ><strong>Prix actuel:  <%= @prix%>0 € </strong></p><br/>
+
+    <p ><strong>Date de fin d'enchère :  <%= @objet.datefinench.strftime("%d/%m/%Y %H:%M") %> </strong></p><br/>
+    <p ><strong>Description :  <%= @objet.description %>  </strong></p><br/>
+  </div>
+
+</div>
+<%if  logged_in %>
+  <%if current_user.id==@objet.utilisateur.id %>
+    <div class="col-md-12" id="divButtonObj">
+      <div class="buttonModif">
+        <%= link_to "Modifier", edit_objet_path(@objet.id), {:class => "alink"} %>
+      </div>
+    </div>
+  <% else%>
+    <div class="col-md-12" id="divButtonObj">
+      <div class="buttonModif">
+        <%= link_to "Encherir", new_objet_enchere_path(@objet.id), {:class => "alink"} %>
+     </div>
+    </div>
+
+  <%end%>
+<%end%>

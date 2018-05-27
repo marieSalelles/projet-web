@@ -1,0 +1,111 @@
+<div class="container">
+
+  <!-- Slide -->
+  <div class="container">
+    <div class="header-page header-img">
+      <div class="col-md-6 col-md-offset-6">
+        <div class="row">
+          <div class="inner-content-compte">
+            <div class="header-content">
+              <h1>Encher'O max</h1>
+              <hr>
+              <p>Site de vente entre particuliers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Heading -->
+
+  <!--categorie navigation-->
+
+  <div class="container margin-top">
+    <div class="portfolio-wrapper">
+      <button class="nav">
+                <span class="icon-container">
+				<span class="line line01"></span>
+                <span class="line line02"></span>
+                <span class="line line03"></span>
+                <span class="line line04"></span>
+                </span>
+      </button>
+      <div class="works-filter">
+        <%= link_to "All", objets_path, :class => "filter active" %>
+        <% @categories.each do |categorie| %>
+            <%= link_to  category_path(categorie.id), :class => "filter active"  do %>
+               <%= categorie.nomcategorie.capitalize %>
+            <% end %>
+          <% end %>
+
+      </div>
+      <!--container-->
+      <div class="row" id="work-grid">
+        <% @objets.each do |objet| %>
+        <div class="col-md-4 col-sm-4 col-xs-12 mix music">
+          <div class="img home-portfolio-image">
+            <%= cl_image_tag("#{objet.id}.jpg",alt: objet.nomobjet, height: '300px') %>
+            <div class="overlay-thumb">
+              <a href="javascript:void(0)" class="like-product">
+                <i class="ion-ios-heart-outline"></i>
+                <span class="output"><%=objet.categorie.nomcategorie.capitalize %></span>
+              </a>
+              <div class="details">
+                <span class="title"><%=objet.nomobjet %></span>
+
+
+                <span class="info"><%= objet.encheres.length > 0 ? objet.encheres.last.prix : objet.prix %>0 €</span>
+
+
+
+
+
+              </div>
+              <span class="btnBefore"></span>
+              <span class="btnAfter"></span>
+              <%= link_to "", objet_path(objet.id), {:class => "main-portfolio-link"} %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+
+
+      <!-- Pagination -->
+     <ul class="pagination justify-content-center">
+       <!--   <li class="page-item">
+           <a class="page-link" href="#" aria-label="Previous">
+             <span aria-hidden="true">&laquo;</span>
+             <span class="sr-only">Previous</span>
+           </a>
+         </li>
+         <li class="page-item">
+           <a class="page-link" href="#">1</a>
+         </li>
+         <li class="page-item">
+           <a class="page-link" href="#">2</a>
+         </li>
+         <li class="page-item">
+           <a class="page-link" href="#">3</a>
+         </li>
+         <li class="page-item">
+           <a class="page-link" href="#" aria-label="Next">
+             <span aria-hidden="true">&raquo;</span>
+             <span class="sr-only">Next</span>
+           </a>
+         </li>-->
+      </ul>
+
+    </div>
+  </div>
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark ">
+  <div class="container col-md-offset-12">
+    <p class="m-0 text-center text-white">Copyright &copy; My Website 2018</p>
+  </div>
+</footer>

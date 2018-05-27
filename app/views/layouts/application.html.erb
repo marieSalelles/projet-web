@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ProjetWeb</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= cloudinary_js_config %>
+    </head>
+
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <button id="op" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <button id="clo" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+
+          <% if logged_in %>
+            <li class="nav-item nav-link">
+              <%= link_to "Accueil", root_url %>
+            </li>
+            <li class="nav-item nav-link">
+              <%= link_to "Profil", current_user %>
+            </li>
+            <li class="nav-item nav-link">
+              <%= link_to "Vendre", new_objet_path %>
+            </li>
+            <li class="nav-item nav-link">
+              <%= link_to "Mes achats", achats_objets_path %>
+            </li>
+            <li class="nav-item nav-link">
+              <%= link_to "Mes ventes", ventes_objets_path %>
+            </li>
+            <li class="nav-item nav-link">
+              <%= link_to "Mes commentaires", utilisateur_commentaires_path(current_user.id) %>
+            </li>
+            <li class="nav-item nav-link">
+              <%= link_to "Deconnexion", logout_path, method: :delete %>
+            </li>
+
+          <% else %>
+
+            <li class="nav-item nav-link">
+              <%= link_to "Inscription", new_utilisateur_path %></li>
+            </li>
+
+            <li class="nav-item nav-link">
+              <%= link_to "Connexion", login_path %></li>
+            </li>
+          <% end %>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <%= yield %>
+  </body>
+</html>

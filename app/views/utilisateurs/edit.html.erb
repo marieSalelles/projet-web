@@ -1,0 +1,41 @@
+<div class="container">
+  <h2 class="titre2">Modification du profil</h2>
+
+  <%= form_with scope: :utilisateur, url: utilisateur_path(current_user), html: {method: :put}, local: true do |form| %>
+    <div class="contact-form">
+      <div class="col-md-10">
+        <%= form.label :nom, "Nom" %><br/>
+        <%= form.text_field :nomuti, :required => true %>
+      </div>
+      <div class="col-md-10">
+        <%= form.label :prenom, "Prenom" %><br/>
+        <%= form.text_field :prenomuti, :required => true %>
+      </div>
+      <div class="col-md-10">
+        <%= form.label :age, "Age" %><br/>
+        <%= form.text_field :age, :required => true %>
+      </div>
+      <div class="col-md-10">
+        <p>Adresse</p>
+        <%= form.label :rue, "Rue" %><br/>
+        <%= form.text_field :rue, :required => true %><br/>
+        <%= form.label :codepostal, "Code postal" %><br/>
+        <%= form.number_field :codepostal, :required => true %><br/>
+        <%= form.label :ville, "Ville" %><br/>
+        <%= form.text_field :ville, :required => true %>
+      </div>
+      <div class="col-md-10">
+        <%= form.label :login, "Adresse mail" %><br/>
+        <%= form.email_field :login, :required => true %>
+      </div>
+      <div class="col-md-10">
+        <%= form.label :password_digest, "Mot de passe" %><br/>
+        <%= form.password_field :password, :required => true , :autocomplete => 'off' %>
+        <%= form.submit %>
+      </div>
+
+    </div>
+    </div>
+    </form>
+    </div>
+  <% end %>

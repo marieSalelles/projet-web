@@ -1,0 +1,39 @@
+<div class="container">
+
+  <!-- Slide -->
+  <div class="container">
+    <div class="header-page header-img">
+      <div class="col-md-6 col-md-offset-6">
+        <div class="row">
+          <div class="inner-content-compte">
+            <div class="header-content">
+              <h1>Vos commentaires</h1>
+              <hr>
+              <p>Retrouvez tous vos commentaires</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Utilisateur</th>
+      <th scope="col">Commentaire</th>
+      <th scope="col">Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @commentaires.each do |comment| %>
+      <tr>
+        <td><%= comment.uti_comment.prenomuti.capitalize %> <%= comment.uti_comment.nomuti.capitalize %> </td>
+        <td><%= comment.commentaire %></td>
+        <td><%= comment.datecomment.strftime("%d/%m/%Y %H:%M") %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>

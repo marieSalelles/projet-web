@@ -1,0 +1,104 @@
+<div class="container">
+
+  <!-- Slide -->
+  <div class="container">
+    <div class="header-page header-img">
+      <div class="col-md-6 col-md-offset-6">
+        <div class="row">
+          <div class="inner-content-compte">
+            <div class="header-content">
+              <h1>Mes objets</h1>
+              <hr>
+              <p>Retrouvez les objets sur lesquels vous avez enchéri</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Page Heading -->
+
+  <!--categorie navigation-->
+
+  <div class="container margin-top">
+    <div class="portfolio-wrapper">
+
+      <!--container-->
+      <div class="row" id="work-grid">
+        <h5 class="objSousTitre">Les objets qui vous intéressent</h5>
+        <% @objets.each do |objet| %>
+          <div class="col-md-4 col-sm-4 col-xs-12 mix music">
+            <div class="img home-portfolio-image">
+              <%= cl_image_tag("#{objet.id}.jpg",alt: objet.nomobjet) %>
+              <div class="overlay-thumb">
+                <a href="javascript:void(0)" class="like-product">
+                  <i class="ion-ios-heart-outline"></i>
+                  <span class="output"><%= objet.categorie.nomcategorie.capitalize %></span>
+                </a>
+                <div class="details buttonVente">
+                  <span class="modifV"> <%= link_to "Listes des encheres", objet_encheres_path(objet.id), {:class => "linkOM"} %></span><br/>
+                  <span class="deletV"> <%= link_to "Enchérir", new_objet_enchere_path(objet.id), {:class => "linkOM"} %></span><br/>
+              </div>
+
+                <div class="details">
+                  <span class="title"><%= objet.nomobjet %></span>
+                  <span class="info"><%= objet.encheres.length > 0 ? objet.encheres.last.prix : objet.prix %>0 €</span>
+                </div>
+                <span class="btnBefore"></span>
+                <span class="btnAfter"></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+      <div class="row">
+        <h5 class="objSousTitre">Les objets achetés</h5>
+      </div>
+      <div class="row" id="work-grid">
+        <% @objets2.each do |objet| %>
+          <% if objet.encheres.last.utilisateur_id == current_user.id %>
+          <div class="col-md-4 col-sm-4 col-xs-12 mix music">
+            <div class="img home-portfolio-image">
+              <%= cl_image_tag("#{objet.id}.jpg",alt: objet.nomobjet) %>
+              <div class="overlay-thumb">
+                <a href="javascript:void(0)" class="like-product">
+                  <i class="ion-ios-heart-outline"></i>
+                  <span class="output"><%= objet.categorie.nomcategorie.capitalize %></span>
+                </a>
+
+                <div class="details buttonVente">
+                  <span class="modifV"> <%= link_to "Commenter le vendeur", new_utilisateur_commentaire_path(objet.utilisateur.id), {:class => "linkOM"} %></span><br/>
+                </div>
+
+                <div class="details">
+                  <span class="title"><%= objet.nomobjet %></span>
+                  <span class="info"><%= objet.encheres.length > 0 ? objet.encheres.last.prix : objet.prix %>0 €</span>
+                </div>
+                <span class="btnBefore"></span>
+                <span class="btnAfter"></span>
+              </div>
+            </div>
+          </div>
+            <% end %>
+        <% end %>
+      </div>
+
+
+      <ul class="pagination justify-content-center">
+
+      </ul>
+
+    </div>
+  </div>
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark ">
+  <div class="container col-md-offset-12">
+    <p class="m-0 text-center text-white">Copyright &copy; My Website 2018</p>
+  </div>
+</footer>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails projet-web: development" uuid="9d038aa6-dd44-40e9-a77f-baeddd49d896">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>xjkigakxleujhr</user-name>
+    </data-source>
+    <data-source name="Rails projet-web: production" uuid="b2c03319-ca5c-47c1-be9e-180626b183e9">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <user-name>xjkigakxleujhr</user-name>
+    </data-source>
+    <data-source name="Rails projet-web: test" uuid="481e5a23-5c38-4954-9cef-ce179ea58efb">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <user-name>xjkigakxleujhr</user-name>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,18 @@
+<div class="container">
+  <h2 class="titre2">Ajouter un commentaire à <%=@utilisateur.prenomuti.capitalize %> <%=@utilisateur.nomuti.capitalize %></h2>
+  <%= flash[:warning] %>
+  <%= flash[:notice] %>
+  <%= form_for(:commentaire, url: utilisateur_commentaires_path)  do |form| %>
+    <div class="contact-form">
+      <div class="col-md-10">
+        <%= form.label :commentaire, "Commentaire" %><br/>
+        <%= form.text_area :commentaire %>
+        <%= form.hidden_field :datecomment, :value=>DateTime.now %>
+        <%= form.hidden_field :uti_becomment_id, :value=>@utilisateur.id%>
+        <%= form.hidden_field :utilisateur_id, :value=>current_user.id%>
+        <%= form.submit :valider %>
+      </div>
+    </div>
+    </div>
+  <% end %>
+  </div>

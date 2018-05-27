@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="titre2"> Vendre un objet</h2>
+
+  <%= form_with scope: :objet, url: objets_path, local: true do |form| %>
+    <div class="contact-form">
+        <div class="col-md-10">
+          <%= form.label :nomobjet, "Nom" %><br>
+          <%= form.text_field :nomobjet %>
+        </div>
+       <div class="col-md-10">
+         <%= form.label :categorie_id, "Categorie de l'objet" %><br>
+         <%= form.select(:categorie_id, @categories.map {|categorie| [categorie.nomcategorie,categorie.id]}) %>
+        </div>
+        <div class="col-md-10">
+          <%= form.label :prix, "Prix de départ des enchères" %><br>
+          <%= form.number_field :prix %>
+        </div>
+        <div class="col-md-10 col-sm-5">
+          <%= form.label :photo, "Photo de l'objet" %><br>
+          <%= form.file_field :photo, accept: 'image/jpeg' %>
+        </div>
+        <div class="col-md-10 col-sm-5">
+          <%= form.label :datefinench, "Date de fin des enchères" %><br>
+          <%= form.datetime_field :datefinench, min: Date.today %>
+       </div>
+        <div class="col-md-10">
+          <%= form.label :description, "Description" %><br>
+          <%= form.text_area :description %>
+          <%= form.submit :valider %>
+        </div>
+      </div>
+    </div>
+  <% end %>

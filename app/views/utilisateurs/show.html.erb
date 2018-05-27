@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="header-page header-img" >
+    <div class="col-md-6 col-md-offset-6">
+      <div class="row">
+        <div class="inner-content-compte">
+          <div class="header-content">
+            <h1> Mon profil </h1>
+            <hr>
+            <p>Informations personnelles</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2 class="titre2">Profil</h2>
+  <div class="col-md-5" id="ident">
+    <p id="libProfil"><strong>Identité :</strong></p><br/>
+    <p id="identity"> <%= @utilisateur.nomuti %>
+     <%= @utilisateur.prenomuti %> <br/></p>
+    <p><strong>Age :</strong></p>
+     <%= @utilisateur.age %>
+    </div>
+
+  <div class="col-md-5" id="contact">
+   <p id="libProfil"><strong>Contact :</strong></p><br/>
+    <p ><strong>Mail :</strong></p><br/>
+    <p id="identity"> <%= @utilisateur.login %></p>
+    <p><strong>Adresse :</strong></p><br/>
+    <p id="identity"> <%= @utilisateur.rue %><br/>
+    <%= @utilisateur.codepostal %><br/>
+    <%= @utilisateur.ville %></p>
+   </div>
+</div>
+<% if logged_in %>
+    <div class="col-md-12" id="divButtonProf">
+      <div class="buttonModif">
+        <%= link_to "Modifier", edit_utilisateur_path(current_user), {:class => "alink"} %>
+      </div>
+    </div>
+ <% end %>
+
