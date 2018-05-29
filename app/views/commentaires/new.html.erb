@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="titre2">Ajouter un commentaire à <%=@utilisateur.prenomuti.capitalize %> <%=@utilisateur.nomuti.capitalize %></h2>
-  <%= flash[:warning] %>
-  <%= flash[:notice] %>
+  <span class="warning"><%= flash[:warning] %></span>
+  <span class="success"><%= flash[:notice] %></span>
   <%= form_for(:commentaire, url: utilisateur_commentaires_path)  do |form| %>
     <div class="contact-form">
       <div class="col-md-10">

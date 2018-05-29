@@ -17,6 +17,11 @@
     </div>
   </div>
 
+  <% if current_user.id != @objet.utilisateur.id %>
+    <td> <%= link_to "Encherir sur l'objet", new_objet_enchere_path(@objet.id), {:class => "Tablink"} %></td>
+  <% else %>
+    <td></td>
+  <% end %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -35,10 +40,6 @@
     <% end %>
   </tbody>
 </table>
-  <% if current_user.id != @objet.utilisateur.id %>
-    <td> <%= link_to "Encherir sur l'objet", new_objet_enchere_path(@objet.id), {:class => "Tablink"} %></td>
-  <% else %>
-    <td></td>
-  <% end %>
+
 
 </div>

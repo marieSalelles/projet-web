@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="titre2">Connexion</h2>
-
+  <span class="warning"><%= flash[:warning] %></span>
   <%= form_for(:session, url: login_path)  do |form| %>
     <div class="contact-form">
       <div class="col-md-10">
@@ -10,7 +10,7 @@
       <div class="col-md-10">
         <%= form.label :password, "Mot de passe" %><br/>
         <%= form.password_field :password, :required => true, :autocomplete => 'off' %>
-        <%= form.submit %>
+        <%= form.submit :connexion %>
       </div>
       <div class="col-md-10">
         <p id="newUti">Nouvel utilisateur <%= link_to " S'inscrire", new_utilisateur_path %></p>

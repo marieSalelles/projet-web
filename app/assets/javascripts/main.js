@@ -22,19 +22,6 @@ $( document ).ready(function() {
         });
     });
 
-
-
-
-//delete object via link which have a data-url
-    $('.linkOD').on('click', function (e) {
-       if (confirm('Vous êtes sur de vouloir supprimer ?')){
-            $.delete($(this).data().url);
-       }
-    });
-
-
-
-
 });
 
 

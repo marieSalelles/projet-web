@@ -15,6 +15,7 @@
 //= require jquery.min
 //= require bootstrap
 //= require main
+//= require delete
 //= require cloudinary
 
 $(function() {

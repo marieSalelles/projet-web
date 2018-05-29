@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="titre2"> Modifier un objet</h2>
-
+  <span class="warning"><%= flash[:warning] %></span></div>
   <%= form_with scope: :objet, url: objet_path(@objet.id), html: {method: :put}, local: true do |form| %>
     <div class="contact-form">
       <div class="col-md-10">
@@ -26,7 +26,7 @@
       <div class="col-md-10">
         <%= form.label :description, "Description" %><br>
         <%= form.text_area :description %>
-        <%= form.submit %>
+        <%= form.submit :valider %>
       </div>
     </div>
     </div>

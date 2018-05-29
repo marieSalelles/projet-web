@@ -8,7 +8,7 @@ class CommentairesController < ApplicationController
 
     @encheres = []
     @utilisateur.objets.where("datefinench < ?" , DateTime.now).each do |objet|
-      #je récupére les dernieres enchereque tous les objets
+      #je récupére les dernieres enchere de tous les objets
       @encheres << objet.encheres.last
     end
     #if current user have buy one object

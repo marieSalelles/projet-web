@@ -3,7 +3,9 @@ class Objet < ApplicationRecord
   belongs_to :categorie
   belongs_to :utilisateur
   #an object could have mutiple bids
-  has_many :encheres
+
+  # dependent detroy => delete enchere of objets
+  has_many :encheres, dependent: :destroy
 
   validates :nomobjet, presence: true
   validates :prix, presence: true

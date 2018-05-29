@@ -40,15 +40,18 @@ end
       #save the name of image in the database
       @objet.update( photo: @objet.id.to_s)
 
-      #upload image on cloud
-      Cloudinary::Uploader.upload(params[:objet][:photo], :public_id => @objet.id.to_s)
+      begin
+        #upload image on cloud
+        Cloudinary::Uploader.upload(params[:objet][:photo], :public_id => @objet.id.to_s)
+        respond_to do |format|
+             format.html {render 'objets/show'}
+             format.json {render :show}
+        end
+      rescue Exception
+        flash[:warning] = 'Fichier non valide'
+        redirect_to  new_objet_path
+      end
 
-    end
-
-
-    respond_to do |format|
-      format.html {render 'objets/show'}
-      format.json {render :show}
     end
 
   end
@@ -63,17 +66,21 @@ end
       #save the name of image in the database
       @objet.update( photo: @objet.id.to_s)
 
-      #upload image on cloud
-      Cloudinary::Uploader.upload(params[:objet][:photo], :public_id => @objet.id.to_s)
-
+      begin
+        #upload image on cloud
+        Cloudinary::Uploader.upload(params[:objet][:photo], :public_id => @objet.id.to_s)
+        respond_to do |format|
+             format.html {render :show}
+              format.json {render :show }
+        end
+      rescue Exception
+        flash[:warning] = 'Fichier non valide'
+        redirect_to  edit_objet_path
+      end
 
 
    end
 
-    respond_to do |format|
-      format.html {render :show}
-      format.json {render :show }
-    end
   end
 
   def edit
@@ -88,7 +95,11 @@ end
   end
 
   def destroy
-    #if this object no have bid
+    @objet = Objet.find(params[:id])
+    id = @objet.id
+    #delete object, create json response for delete object in the page
+    @objet.destroy
+    render json: {id: id}
 
   end
 
@@ -101,17 +112,16 @@ end
 
   def achats
     #object which are on the market and user have bids on it
-    @objets= Objet.where.not(utilisateur_id: current_user.id).where("datefinench > ?" , DateTime.now)
+    @objets = []
+    Objet.where.not(utilisateur_id: current_user.id).where("datefinench > ?" , DateTime.now).each do |o|
+      @objets << o if o.encheres.pluck(:utilisateur_id).include?(current_user.id)
+    end
+
+    @objets2 = []
     #sold object or object which datefinench is passed an the last bids was made by user
-    @objets2= Objet.where.not( utilisateur_id: current_user.id).where("datefinench < ?" , DateTime.now)
-
-
-   # @objets2.each do |objet|
-    #    @enchere = Enchere.where(objet_id: objet.id).last
-     # if @enchere.utilisateur_id == current_user.id
-      #  @encheres = @enchere
-     # end
-   # end
+    Objet.where.not( utilisateur_id: current_user.id).where("datefinench < ?" , DateTime.now).each do |o|
+      @objets2 << o if o.encheres.last.utilisateur.id == current_user.id
+    end
 
   end
   private

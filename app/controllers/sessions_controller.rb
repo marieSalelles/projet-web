@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       remember utilisateur
       redirect_to utilisateur
     else
-
+      flash[:warning] = 'Login ou mot de passe incorrect'
       render 'new'
     end
   end

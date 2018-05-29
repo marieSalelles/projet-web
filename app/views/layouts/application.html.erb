@@ -28,9 +28,6 @@
               <%= link_to "Accueil", root_url %>
             </li>
             <li class="nav-item nav-link">
-              <%= link_to "Profil", current_user %>
-            </li>
-            <li class="nav-item nav-link">
               <%= link_to "Vendre", new_objet_path %>
             </li>
             <li class="nav-item nav-link">
@@ -43,10 +40,17 @@
               <%= link_to "Mes commentaires", utilisateur_commentaires_path(current_user.id) %>
             </li>
             <li class="nav-item nav-link">
+              <%= link_to "Profil", current_user %>
+            </li>
+            <li class="nav-item nav-link">
               <%= link_to "Deconnexion", logout_path, method: :delete %>
             </li>
 
           <% else %>
+
+            <li class="nav-item nav-link">
+              <%= link_to "Acceuil", home_index_path %></li>
+            </li>
 
             <li class="nav-item nav-link">
               <%= link_to "Inscription", new_utilisateur_path %></li>
@@ -64,5 +68,6 @@
   </nav>
 
     <%= yield %>
+
   </body>
 </html>

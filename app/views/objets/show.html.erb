@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="titre2"><%= @objet.nomobjet %></h2>
   <p class="vendeur"> Vendeur : <%= @objet.utilisateur.prenomuti %> <%= @objet.utilisateur.nomuti %></p>
-
+  <span class="comment_show"><%= link_to "Voir les commentaires sur le vendeur", utilisateur_commentaires_path(@objet.utilisateur.id) %></span>
   <div class="col-md-5" id="photoObj">
     <%= cl_image_tag("#{@objet.id}.jpg",alt: @objet.nomobjet, height: '250px' ) %>
   </div>

@@ -18,7 +18,7 @@ a{
 }
 
 .header-page.header-img{
-    background-image: url('image5.jpg');
+    background-image: url('http://res.cloudinary.com/dckmomosg/image/upload/v1527346972/image5.jpg');
 }
 
 .header-img{
@@ -734,6 +734,12 @@ label{
     margin-top: 2%;
     width: 100%;
 }
+
+.comment_show{
+    width: 85%;
+    display: inline-block;
+    text-align: center;
+}
 /*link for button modif/encherir*/
 .buttonModif{
     display: inline-block;
@@ -765,7 +771,7 @@ label{
     width: 85%;
     font-size: 20px;
 }
-/*link in sold*/
+/*link in vente link*/
 .linkOD{
     color: black !important;
 }
@@ -796,12 +802,32 @@ span.deletV{
     text-align: center;
     width: 100%;
     display: inline-block;
+    padding: 2%;
 }
 
 /*suppression*/
 #suppri{
     text-align: center;
 }
+
+/*error text*/
+.warning{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 78%;
+    font-size: 20px;
+    color: red;
+}
+.success{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 78%;
+    font-size: 20px;
+    color: green;
+}
+
 
 /*colonne bootstrap*/
 @media (min-width: 768px){

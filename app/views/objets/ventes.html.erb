@@ -29,7 +29,7 @@
       <div class="row" id="work-grid">
         <h5 class="objSousTitre">Les objets en vente</h5>
         <% @objets.each do |objet| %>
-          <div class="col-md-4 col-sm-4 col-xs-12 mix music">
+          <div class="col-md-4 col-sm-4 col-xs-12 mix music" id="<%= objet.id %>">
             <div class="img home-portfolio-image">
               <%= cl_image_tag("#{objet.id}.jpg",alt: objet.nomobjet) %>
               <div class="overlay-thumb">
@@ -89,10 +89,3 @@
   </div>
 </div>
 <!-- /.container -->
-
-<!-- Footer -->
-<footer class="py-5 bg-dark ">
-  <div class="container col-md-offset-12">
-    <p class="m-0 text-center text-white">Copyright &copy; My Website 2018</p>
-  </div>
-</footer>
