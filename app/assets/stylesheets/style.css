@@ -12,6 +12,10 @@ a{
     color: #b2b2b2 !important;
 }
 
+.m1-auto{
+    margin-left: 15% !important;
+}
+
 .header-page {
     position: relative;
 
@@ -856,4 +860,10 @@ span.deletV{
     #divButtonProf{
         padding-left: 35%;
     }
+}
+@media screen and (min-width: 767px) and (max-width: 992px){
+   .buttonModif{
+       margin-top: 40%;
+   }
+
 }
