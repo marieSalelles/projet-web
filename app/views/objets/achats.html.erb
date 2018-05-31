@@ -38,6 +38,7 @@
                   <span class="output"><%= objet.categorie.nomcategorie.capitalize %></span>
                 </a>
                 <div class="details buttonVente">
+                  <span class="modifV"> <%= link_to "Voir l'objet", objet_path(objet.id), {:class => "linkOM"} %></span><br/>
                   <span class="modifV"> <%= link_to "Listes des encheres", objet_encheres_path(objet.id), {:class => "linkOM"} %></span><br/>
                   <span class="deletV"> <%= link_to "Enchérir", new_objet_enchere_path(objet.id), {:class => "linkOM"} %></span><br/>
               </div>

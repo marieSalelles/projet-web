@@ -6,7 +6,7 @@
     <div class="contact-form">
       <div class="col-md-10">
         <%= form.label :prix, "Montant de l'enchère" %><br/>
-        <%= form.number_field :prix, :required => true, :min =>@prix, :value => @prix, :step =>'1' %>
+        <%= form.number_field :prix, :required => true, :min =>@prix+1, :value => @prix, :step =>'1' %>
         <%= form.hidden_field :dateench, :required => true, :value=>DateTime.now %>
         <%= form.hidden_field :objet_id, :required => true, :value=>@objet.id%>
         <%= form.submit :valider %>

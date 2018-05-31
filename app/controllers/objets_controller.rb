@@ -1,6 +1,6 @@
 class ObjetsController < ApplicationController
 
-  before_action :autorized, only: [:update, :edit, :ventes, :new, :achats]
+  before_action :autorized, only: [:update, :edit, :ventes, :new, :achats, :destroy]
 
   def new
     @objet=Objet.new
@@ -96,10 +96,15 @@ end
 
   def destroy
     @objet = Objet.find(params[:id])
-    id = @objet.id
-    #delete object, create json response for delete object in the page
-    @objet.destroy
-    render json: {id: id}
+
+    if  current_user.id!= @objet.utilisateur_id
+      render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+    else
+      id = @objet.id
+      #delete object, create json response for delete object in the page
+      @objet.destroy
+      render json: {id: id}
+    end
 
   end
 
