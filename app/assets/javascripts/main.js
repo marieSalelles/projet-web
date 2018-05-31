@@ -5,21 +5,17 @@ $( document ).ready(function() {
     $( "#clo" ).hide();
     $( "#navbarResponsive" ).hide();
     $( "#op" ).click(function() {
-        $( "#navbarResponsive" ).slideToggle( "slow", function() {
+            $( "#navbarResponsive" ).show();
             $( "#clo" ).show();
             $( "#op" ).hide();
-            $( "#navbarResponsive" ).show();
 
-        });
     });
 
     $( "#clo" ).click(function() {
-        $( "#navbarResponsive" ).slideToggle( "slow", function() {
             $( "#clo" ).hide();
             $( "#op" ).show();
             $( "#navbarResponsive" ).hide();
 
-        });
     });
 
 });
