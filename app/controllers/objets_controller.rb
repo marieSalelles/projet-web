@@ -80,7 +80,7 @@ end
 
 
    end
-
+    redirect_to  objet_path
   end
 
   def edit
