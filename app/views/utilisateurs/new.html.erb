@@ -29,7 +29,7 @@
         <%= form.email_field :login, :required => true %>
       </div>
       <div class="col-md-10">
-        <%= form.label :password, "Mot de passe" %><br/>
+        <%= form.label :password, "Mot de passe (6 caractères minimum)" %><br/>
         <%= form.password_field :password, :required => true, :minlength => '6', :autocomplete => 'off' %>
         <%= form.submit :valider %>
       </div>
