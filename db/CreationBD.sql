@@ -509,24 +509,6 @@ ALTER TABLE ONLY encheres
 
 
 --
--- TOC entry 3623 (class 2606 OID 21551222)
--- Name: encheres fk_rails_d45e7f4630; Type: FK CONSTRAINT; Schema: public; Owner: xjkigakxleujhr
---
-
-ALTER TABLE ONLY commentaires
-    ADD CONSTRAINT fk_rails_d45e7f4630 FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id);
-
-
---
--- TOC entry 3623 (class 2606 OID 21551222)
--- Name: encheres fk_rails_ef30c43e79; Type: FK CONSTRAINT; Schema: public; Owner: xjkigakxleujhr
---
-
-ALTER TABLE ONLY commentaires
-    ADD CONSTRAINT fk_rails_ef30c43e79 FOREIGN KEY (uti_becomment_id) REFERENCES utilisateurs(id);
-
-
---
 -- TOC entry 3752 (class 0 OID 0)
 -- Dependencies: 7
 -- Name: public; Type: ACL; Schema: -; Owner: xjkigakxleujhr
