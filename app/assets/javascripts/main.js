@@ -133,29 +133,7 @@ jQuery(document).ready(function($) {
 //Window Load
 jQuery(window).load(function($) {
     
-    /*Init object gallery*/
-    var container = jQuery("#work-grid");
-    if (container.length > 0) {
-        container.isotope({
-            layoutMode: 'masonry',
-            transitionDuration: '0.7s',
-            columnWidth: 60
-        });
-    };
 
-    //Filter object
-    jQuery('a.filter').on('click', function() {
-        var to_filter = jQuery(this).attr('data-filter');
-        if (to_filter == 'all') {
-            container.isotope({
-                filter: '.mix'
-            });
-        } else {
-            container.isotope({
-                filter: '.' + to_filter
-            });
-        }
-    });
 
     //Switch Classes object
     jQuery('.filter').on('click', function() {
