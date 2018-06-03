@@ -837,6 +837,7 @@ span.deletV{
 @media (min-width: 768px){
     .col-md-10 {
         margin-left: 25%;
+        width: 70%;
     }
     .col-md-12{
         margin-left: 35%;
