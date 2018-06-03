@@ -98,7 +98,6 @@ end
 
   def destroy
     @objet = Objet.find(params[:id])
-    p current_user.id
 
     if  current_user.id!= @objet.utilisateur_id
       render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
