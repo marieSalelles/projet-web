@@ -71,7 +71,7 @@ end
         Cloudinary::Uploader.upload(params[:objet][:photo], :public_id => @objet.id.to_s)
         respond_to do |format|
              format.html {render :show}
-              format.json {render :show }
+             format.json {render :show }
         end
       rescue Exception
         flash[:warning] = 'Fichier non valide'
@@ -79,8 +79,9 @@ end
       end
 
 
-   end
-    redirect_to  objet_path
+    else
+      redirect_to  objet_path
+    end
   end
 
   def edit
