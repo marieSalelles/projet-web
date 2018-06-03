@@ -25,10 +25,12 @@ class UtilisateursController < ApplicationController
 
   def update
     current_user.update(utilisateur_params)
+
     respond_to do |format|
       format.html {render :show}
       format.json {render :show }
     end
+
   end
 
  def edit

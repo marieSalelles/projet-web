@@ -1,5 +1,6 @@
 class ObjetsController < ApplicationController
 
+  skip_before_action :verify_authenticity_token, only: [:destroy]
   before_action :autorized, only: [:update, :edit, :ventes, :new, :achats, :destroy]
 
   def new
@@ -97,6 +98,7 @@ end
 
   def destroy
     @objet = Objet.find(params[:id])
+    p current_user.id
 
     if  current_user.id!= @objet.utilisateur_id
       render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
